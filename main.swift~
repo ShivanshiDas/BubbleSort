@@ -1,0 +1,47 @@
+
+
+// ⇩  ⇩  ⇩  ⇩  ⇩  ⇩  ⇩  ⇩  ⇩  ⇩  ⇩  ⇩  ⇩  ⇩  ⇩  ⇩  ⇩  ⇩  ⇩  ⇩  ⇩  ⇩  ⇩  ⇩  ⇩  ⇩  ⇩  ⇩  ⇩  ⇩  ⇩  ⇩  ⇩  ⇩  ⇩  ⇩  ⇩  ⇩  ⇩
+// DO NOT ALTER THE TEXT BETWEEN THESE LINES =========={M{E{R{L{I{N{1}N}I}L}R}E}M}=====================================
+let unsortedIntegers = [5, 1, 4, 2, 8]
+// DO NOT ALTER THE TEXT BETWEEN THESE LINES =========={M{E{R{L{I{N{1}N}I}L}R}E}M}=====================================
+// ⇧  ⇧  ⇧  ⇧  ⇧  ⇧  ⇧  ⇧  ⇧  ⇧  ⇧  ⇧  ⇧  ⇧  ⇧  ⇧  ⇧  ⇧  ⇧  ⇧  ⇧  ⇧  ⇧  ⇧  ⇧  ⇧  ⇧  ⇧  ⇧  ⇧  ⇧  ⇧  ⇧  ⇧  ⇧  ⇧  ⇧  ⇧  ⇧
+
+
+// Add your code below:
+
+
+func swap(integers: inout [Int], firstIndex: Int, secondIndex: Int) {
+    integers.swapAt(firstIndex, secondIndex) }
+
+func sort() {
+    var swapCount = 0
+    var totalCount = 0
+    var repeatFunc = true
+    var integers = unsortedIntegers // makes it a mutable value
+    
+    print("Pass: \(0), Swaps: \(swapCount)/\(totalCount), Array: \(integers)") // print statement
+
+    while(repeatFunc) { // invokes function
+        for i in 0 ..< integers.count { // i is the number of rounds of checking for swaps
+            for k in 1 ..< integers.count - i { // inner loop does the actual swapping
+                    if integers[k] < integers[k-1] {
+                    repeatFunc = true
+                    swapCount += 1
+                    totalCount += 1
+                    swap(integers: &integers, firstIndex: k, secondIndex: k - 1) // swap
+                }
+            }
+
+            print("Pass: \(i+1), Swaps: \(swapCount)/\(totalCount), Array: \(integers)") // updated print statement after each round (i)
+
+            if(swapCount == 0) {
+                repeatFunc = false // breaking out of the loops
+                break // ending the loops
+            }
+
+            swapCount = 0 // reset the swapCount
+        }
+    }
+}
+
+sort() // calling the function 
