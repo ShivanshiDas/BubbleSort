@@ -14,7 +14,7 @@ while line != nil && line != "" && line != " " {
 }
  // makes it a mutable value
     
-    print("Pass: \(0), Swaps: \(swapCount)/\(totalCount), Array: \(words)") // print statement
+
 
     while(repeatFunc) { // invokes function
         for i in 0 ..< words.count { // i is the number of rounds of checking for swaps
@@ -27,7 +27,7 @@ while line != nil && line != "" && line != " " {
                 }
             }
 
-            print("Pass: \(i+1), Swaps: \(swapCount)/\(totalCount), Array: \(words)") // updated print statement after each round (i)
+
 
             if(swapCount == 0) {
                 repeatFunc = false // breaking out of the loops
@@ -37,6 +37,8 @@ while line != nil && line != "" && line != " " {
             swapCount = 0 // reset the swapCount
         }
     }
+
+    print(words)
 }
 
 sort() // calling the function 
